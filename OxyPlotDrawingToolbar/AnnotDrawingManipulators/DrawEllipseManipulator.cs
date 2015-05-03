@@ -81,13 +81,23 @@ namespace OxyPlotDrawingToolbar.AnnotDrawingManipulators
                     (Test.Element as EllipseAnnotation).X = StartX - Xresult / 2;
                     (Test.Element as EllipseAnnotation).Width = StartWidth + Xresult;
                 }
+                else
+                {
+                    (Test.Element as EllipseAnnotation).X = StartX + Xresult / 2;
+                    (Test.Element as EllipseAnnotation).Width = StartWidth - Xresult;
+                }
 
                 double StartPositionCorrectY = StartY - StartHeight / 2;
                 double Yresult = Math.Sqrt((YAxis.InverseTransform(e.Position.Y) - StartPositionCorrectY) * (YAxis.InverseTransform(e.Position.Y) - StartPositionCorrectY));
-                if (StartPositionCorrectY<YAxis.InverseTransform(e.Position.Y))
+                if (StartPositionCorrectY < YAxis.InverseTransform(e.Position.Y))
                 {
-                (Test.Element as EllipseAnnotation).Y = StartY + Yresult / 2;
-                (Test.Element as EllipseAnnotation).Height = StartHeight - Yresult;
+                    (Test.Element as EllipseAnnotation).Y = StartY + Yresult / 2;
+                    (Test.Element as EllipseAnnotation).Height = StartHeight - Yresult;
+                }
+                else
+                {
+                    (Test.Element as EllipseAnnotation).Y = StartY - Yresult / 2;
+                    (Test.Element as EllipseAnnotation).Height = StartHeight + Yresult;
                 }
                 this.PlotModel.InvalidatePlot(false);
             }
