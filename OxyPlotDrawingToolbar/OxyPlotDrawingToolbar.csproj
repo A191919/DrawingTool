@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3DCBEAD-6E26-4BFD-8265-B1F6FD225711}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OxyPlotDrawingToolbar</RootNamespace>
+    <AssemblyName>OxyPlotDrawingToolbar</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OxyPlot, Version=2014.1.546.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\OxyPlot.Core.2014.1.546\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.WindowsForms, Version=2014.1.546.0, Culture=neutral, PublicKeyToken=245eacd6b5d2d338, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\OxyPlot.WindowsForms.2014.1.546\lib\net45\OxyPlot.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnnotDrawingManipulators\DrawAnnotManipulator.cs" />
+    <Compile Include="AnnotDrawingManipulators\DrawArrowManipulator.cs" />
+    <Compile Include="AnnotDrawingManipulators\DrawEllipseManipulator.cs" />
+    <Compile Include="AnnotDrawingManipulators\DrawLineManipulator.cs" />
+    <Compile Include="AnnotDrawingManipulators\DrawPolygonManipulator.cs" />
+    <Compile Include="AnnotDrawingManipulators\DrawPolylineManipulator.cs" />
+    <Compile Include="AnnotDrawingManipulators\DrawRectangleManipulator.cs" />
+    <Compile Include="AnnotDrawingManipulators\DrawTextManipulator.cs" />
+    <Compile Include="AnnotDrawingToolBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AnnotDrawingToolBar.Designer.cs">
+      <DependentUpon>AnnotDrawingToolBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnotDrawingToolBar.Events.cs">
+      <DependentUpon>AnnotDrawingToolBar.cs</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Icons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icons.resx</DependentUpon>
+    </Compile>
+    <Compile Include="InputTextDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputTextDialog.Designer.cs">
+      <DependentUpon>InputTextDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExampleForm.Designer.cs">
+      <DependentUpon>ExampleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExampleForm.Events.cs">
+      <DependentUpon>ExampleForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToolTips.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToolTips.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Icons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputTextDialog.resx">
+      <DependentUpon>InputTextDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExampleForm.resx">
+      <DependentUpon>ExampleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ToolTips.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToolTips.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\arrow-135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\layer-shape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\layer-shape-ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\layer-shape-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\layer-shape-polygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\layer-shape-polyline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\layer-shape-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\border-outside.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\cross-octagon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\disk-black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
