@@ -101,40 +101,13 @@ namespace OxyPlotDrawingToolbar.AnnotDrawingManipulators
                 }
                 this.PlotModel.InvalidatePlot(false);
             }
-            //if (second)
-            //{
-            //    HitTestResult Test = new HitTestResult(this, e.Position);
-            //    if (((Test.Element as EllipseAnnotation).MaximumY < (Test.Element as EllipseAnnotation).MinimumY) && ((Test.Element as EllipseAnnotation).MinimumX < (Test.Element as EllipseAnnotation).MaximumX))
-            //    {
-            //        (Test.Element as EllipseAnnotation).MinimumX = (XAxis.InverseTransform(e.Position.X) - MouseXRight);
-            //        (Test.Element as EllipseAnnotation).MaximumX = (XAxis.InverseTransform(e.Position.X) + MouseXLeft);
-            //        (Test.Element as EllipseAnnotation).MinimumY = (YAxis.InverseTransform(e.Position.Y) + MouseYUp);
-            //        (Test.Element as EllipseAnnotation).MaximumY = (YAxis.InverseTransform(e.Position.Y) - MouseYDown);
-            //    }
-            //    if (((Test.Element as EllipseAnnotation).MaximumY < (Test.Element as EllipseAnnotation).MinimumY) && ((Test.Element as EllipseAnnotation).MinimumX > (Test.Element as EllipseAnnotation).MaximumX))
-            //    {
-            //        (Test.Element as EllipseAnnotation).MinimumX = (XAxis.InverseTransform(e.Position.X) + MouseXRight);
-            //        (Test.Element as EllipseAnnotation).MaximumX = (XAxis.InverseTransform(e.Position.X) - MouseXLeft);
-            //        (Test.Element as EllipseAnnotation).MinimumY = (YAxis.InverseTransform(e.Position.Y) + MouseYUp);
-            //        (Test.Element as EllipseAnnotation).MaximumY = (YAxis.InverseTransform(e.Position.Y) - MouseYDown);
-            //    }
-            //    if (((Test.Element as EllipseAnnotation).MaximumY > (Test.Element as EllipseAnnotation).MinimumY) && ((Test.Element as EllipseAnnotation).MinimumX < (Test.Element as EllipseAnnotation).MaximumX))
-            //    {
-            //        (Test.Element as EllipseAnnotation).MinimumX = (XAxis.InverseTransform(e.Position.X) - MouseXRight);
-            //        (Test.Element as EllipseAnnotation).MaximumX = (XAxis.InverseTransform(e.Position.X) + MouseXLeft);
-            //        (Test.Element as EllipseAnnotation).MinimumY = (YAxis.InverseTransform(e.Position.Y) - MouseYUp);
-            //        (Test.Element as EllipseAnnotation).MaximumY = (YAxis.InverseTransform(e.Position.Y) + MouseYDown);
-            //    }
-            //    if (((Test.Element as EllipseAnnotation).MaximumY > (Test.Element as EllipseAnnotation).MinimumY) && ((Test.Element as EllipseAnnotation).MinimumX > (Test.Element as EllipseAnnotation).MaximumX))
-            //    {
-            //        (Test.Element as EllipseAnnotation).MinimumX = (XAxis.InverseTransform(e.Position.X) + MouseXRight);
-            //        (Test.Element as EllipseAnnotation).MaximumX = (XAxis.InverseTransform(e.Position.X) - MouseXLeft);
-            //        (Test.Element as EllipseAnnotation).MinimumY = (YAxis.InverseTransform(e.Position.Y) - MouseYUp);
-            //        (Test.Element as EllipseAnnotation).MaximumY = (YAxis.InverseTransform(e.Position.Y) + MouseYDown);
-            //    }
-            //    if (this.PlotModel != null)
-            //        this.PlotModel.InvalidatePlot(false);
-            //}
+            if (second & CanSee)
+            {
+                HitTestResult Test = new HitTestResult(this, e.Position);
+                (Test.Element as EllipseAnnotation).X = XAxis.InverseTransform(e.Position.X);
+                (Test.Element as EllipseAnnotation).Y = YAxis.InverseTransform(e.Position.Y);
+                this.PlotModel.InvalidatePlot(false);
+            }
             if (third & CanSee)
             {
                 HitTestResult Test = new HitTestResult(this, e.Position);
